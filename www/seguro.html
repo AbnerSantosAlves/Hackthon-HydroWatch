@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Compartilhar Localização</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        background-color: #023e73;
+        font-family: Arial, sans-serif;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+       
+    }
+    .menu-topo {
+        background-color: #336c9c;
+        padding: 15px;
+        text-align: right;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .menu-topo img {
+        margin-left: 10px;
+    }
+    .header {
+        font-size: 24px;
+        margin: 20px 0;
+        text-align: center;
+    }
+    .form-container {
+        background: linear-gradient(to bottom, #023373, #3C7BB0);
+        padding: 20px;
+        border-radius: 20px;
+        border: 2px solid #fff;
+        width: 80%;
+        max-width: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .form-container label {
+        margin-top: 10px;
+        font-size: 16px;
+    }
+    .form-container input[type="text"],
+    .form-container input[type="checkbox"] {
+        margin-top: 5px;
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        width: 100%;
+    }
+    .form-container input[type="checkbox"] {
+        width: auto;
+        margin-left: 10px;
+    }
+    .form-container button {
+        margin-top: 20px;
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        background-color: #4CAF50;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        width: 100%;
+    }
+    .form-container button:hover {
+        background-color: #45a049;
+    }
+    .maps {
+        margin-top: 20px;
+        border: 2px solid #fff;
+        border-radius: 20px;
+        overflow: hidden;
+        width: 80%;
+        max-width: 400px;
+    }
+    
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 10px;
+    background-color: rgba(51, 108, 156, 1);
+    width: 391px;
+    height: 58px;
+}
+
+.logo{
+    font-weight: 600;
+    font-size: 28px;
+    color: white;
+}
+
+.nav-itens{
+    list-style: none;
+    display: flex;
+}
+
+.nav-itens>li>a{
+    padding-left: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+
+.link-logo{
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+.voltar{
+    margin-top: 20px;
+    margin-right: 350px;
+    font-size: 25px;
+}
+
+</style>
+</head>
+<body>
+    <nav>
+        <div class="logo"><a href="" class="link-logo">HWT1</a></div>
+        <div class="links">
+            <ul class="nav-itens">
+                <li><a href="maps.html" target="_self"><img src="localizacao.png"></a></li>
+                <li><a href="historico.html"><img src="calendario.png"></a></li>
+                <li><a href="nivel-chuva.html"><img src="agua.png"></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="voltar">
+    <a href="inicio.html"><i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i></a>
+    </div>
+<div class="header">Compartilhar Localização</div>
+<div class="maps">
+    <iframe id="map" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+<div class="form-container">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
+
+    <label for="endereco">Endereço:</label>
+    <input type="text" id="endereco" name="endereco" placeholder="Digite seu endereço">
+
+    <label for="descricao">Descrição:</label>
+    <input type="text" id="descricao" name="descricao" placeholder="Descreva se está bem e se o local é seguro">
+
+    <label>
+        <input type="checkbox" id="compartilhar" name="compartilhar"> Desejo compartilhar minha localização
+    </label>
+
+    <button onclick="compartilharLocalizacao()">Enviar</button>
+</div>
+
+<script>
+    function compartilharLocalizacao() {
+        var checkbox = document.getElementById("compartilhar");
+        if (checkbox.checked) {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var latitude = position.coords.latitude;
+                    var longitude = position.coords.longitude;
+                    var mapUrl = "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d58277.457100676766!2d" + longitude + "!3d" + latitude + "!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-PT!2sbr!4v1716837530592!5m2!1spt-PT!2sbr";
+                    document.getElementById("map").src = mapUrl;
+                });s
+            } else {
+                alert("Geolocalização não é suportada pelo seu navegador.");
+            }
+        } else {
+            alert("Por favor, marque a opção para compartilhar sua localização.");
+        }
+    }
+</script>
+</body>
+</html>

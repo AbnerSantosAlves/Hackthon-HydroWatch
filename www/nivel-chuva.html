@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* This is a CSS file */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+   background-color: rgba(2, 62, 115, 1);
+   font-family: "Inter", sans-serif;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+}
+
+.title{
+    font-size: 30px;
+    text-align: center;
+    color: aliceblue;
+    margin-top: 5%;
+    font-weight: 200;
+}
+
+.texts{
+    text-align: right;
+    margin-top: 20px;
+}
+
+.title-duvida{
+    text-decoration: underline;
+    margin-right: 10px;
+}
+
+.text-duvida{
+    margin-right: 10px;
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 10px;
+    background-color: rgba(51, 108, 156, 1);
+    width: 391px;
+    height: 58px;
+}
+
+.logo{
+    font-weight: 500;
+    font-size: 28px;
+    color: white;
+}
+
+.nav-itens{
+    list-style: none;
+    display: flex;
+}
+
+.nav-itens>li>a{
+    padding-left: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.alert-info{
+    margin-top: 10px;
+    color: white;
+    font-weight: medium;
+}
+
+.alert-red{
+    background-color: rgba(110, 168, 218, 1);
+    margin-top: 10px;
+    padding: 10px;
+    border-left: 5px solid rgba(191, 21, 35, 1);
+    width: 85%;
+    margin-left: 10%;
+    font-size: 20px;
+}
+
+.alert-orange{
+    background-color: rgba(110, 168, 218, 1);
+    margin-top: 35px;
+    padding: 10px;
+    border-left: 5px solid rgba(243, 122, 10, 1);
+    width: 85%;
+    margin-left: 10%;
+    font-size: 20px;
+}
+
+.alert-yellow{
+    background-color: rgba(110, 168, 218, 1);
+    margin-top: 35px;
+    padding: 10px;
+    border-left: 5px solid rgba(249, 226, 21, 1);
+    width: 85%;
+    margin-left: 10%;
+    font-size: 20px;
+}
+
+
+
+.alert-green{
+    background-color: rgba(110, 168, 218, 1);
+    margin-top: 35px;
+    padding: 10px;
+    border-left: 5px solid rgba(19, 129, 17, 1);
+    width: 85%;
+    margin-left: 10%;
+    font-size: 20px;
+}
+
+
+
+.alert-end{
+    background-color: rgba(110, 168, 218, 1);
+    margin-top: 35px;
+    padding: 10px;
+    width: 85%;
+    margin-left: 10%;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
+
+
+.link-logo{
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+.voltar{
+    margin-top: 20px;
+    margin-right: 350px;
+    font-size: 25px;
+}
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo"><a href="" class="link-logo">HWT1</a></div>
+        <div class="links">
+            <ul class="nav-itens">
+                <li><a href="maps.html" target="_self"><img src="localizacao.png"></a></li>
+                <li><a href="historico.html"><img src="calendario.png"></a></li>
+                <li><a href="nivel-chuva.html"><img src="agua.png"></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="voltar">
+    <a href="inicio.html"><i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i></a>
+    </div>
+
+    <main>
+        <section class="texts">
+            <h3 class="title">Níveis de água <br>e deslizamento</h3>
+
+            <div class="texts">
+            <p class="title-duvida">Dúvidas?</p>
+            <p class="text-duvida">Saiba os riscos das enchentes e<br> deslizamentos.<p>
+            </div>
+        </section>
+
+        <section class="alert-info">
+         <p class="alert-red">Alerta vermelho: Alagamento forte.</p>
+        <p class="alert-orange">Alerta laranja: Risco de alagamento forte</p>
+        <p class="alert-yellow">Alerta amarelo: Possibilidade de um alagamento</p>
+        <p class="alert-green">Alerta verde: Área liberada sem alagamentos ou chuvas</p>
+        <div class="alert-end">
+            <p>Alerta exclamação: Risco de deslizamento grave.</p> <img src="Icon-alerta.png">
+        </div>
+    </section>
+    </main>
+
+</body>
+</html>

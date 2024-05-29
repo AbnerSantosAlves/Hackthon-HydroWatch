@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* This is a CSS file */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+   background-color: rgba(2, 62, 115, 1);
+   font-family: "Inter", sans-serif;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+}
+
+.title{
+    font-size: 30px;
+    text-align: center;
+    color: aliceblue;
+    margin-top: 10%;
+    font-weight: 200;
+}
+
+.texts{
+    text-align: right;
+    margin-top: 30px;
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 10px;
+    background-color: rgba(51, 108, 156, 1);
+    width: 391px;
+    height: 58px;
+}
+
+.logo{
+    font-weight: 500;
+    font-size: 28px;
+    color: white;
+}
+
+.nav-itens{
+    list-style: none;
+    display: flex;
+}
+
+.nav-itens>li>a{
+    padding-left: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.card{
+    background-image: linear-gradient(to right, rgba(252, 247, 247, 0.4), rgba(2, 62, 115, 1));
+    text-align: center;
+    padding: 40px;
+    margin: 20px 80px;
+    font-size: 35px;
+    color: white;
+    border-radius: 10px;
+}
+
+.subtitle{
+    text-align: center;
+    font-weight: 200;
+    color: white;
+    font-size: 28px;
+    margin-top: 20px;
+}
+
+.btns{
+    display: flex;
+    flex-direction: column;
+    font-weight: 200;
+}
+
+.btns-main{
+    background-image: linear-gradient(to left,  rgba(60, 123, 176, 1), rgba(2, 51, 115, 1));
+    border: none;
+    margin: 10px 30px;
+    padding: 20px 40px;
+    border-radius: 15px;
+    text-align: left;
+    color: white;
+    font-size: 20px;
+    margin-top: 30px;
+    box-shadow: 0px 4px 3px #0000007f;
+    font-weight: 200;
+    cursor: pointer;
+}
+
+.link-logo{
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo"><a href="" class="link-logo">HWT1</a></div>
+        <div class="links">
+            <ul class="nav-itens">
+                <li><a href="maps.html" target="_self"><img src="localizacao.png"></a></li>
+                <li><a href="historico.html"><img src="calendario.png"></a></li>
+                <li><a href="nivel-chuva.html"><img src="agua.png"></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section>
+            <p class="title">Mongágua, 29/05/2024</p>
+            <div class="card">
+                <p class="temp">21º</p>
+            </div>
+        </section>
+        <section>
+            <p class="subtitle">O que deseja saber?</p>
+            
+            <div class="btns">
+                <a href="maps.html" target="_self"><button class="btns-main">Metereologia em tempo real</button></a>
+                <a href="nivel-chuva.html" target="_self"><button class="btns-main" id="comprimento">Níveis de Chuva ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ </button></a>
+                <a href="historico.html" target="_self"><button class="btns-main" id="comprimento">Histórico climático‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ </button></a>
+                <a href="seguro.html" target="_self"><button class="btns-main" id="comprimento">Estou seguro‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎</button></a>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>

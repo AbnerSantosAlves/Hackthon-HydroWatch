@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HWT - Principal</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        background-color: #023e73;
+        font-family: Arial, sans-serif;
+        color: white;
+    }
+    .menu-topo {
+        background-color: #336c9c;
+        padding: 15px;
+        text-align: right;
+    }
+    .imagens {
+        display: inline-block;
+        margin: 0 5px;
+    }
+    .maps {
+        margin-top: 15%;
+        margin-left: 35px;
+    }
+    .texto {
+        font-family: 'inter', sans-serif;
+        color: white;
+        font-size: 14px;
+        text-align: center;
+        margin-top: 40px;
+    }
+    input {
+        margin-top: 15%;
+        border: none;
+        height: 50px;
+        width: 80%;
+        border-radius: 30px;
+    }
+    .search-container {
+        position: relative;
+        width: 60%;
+        margin: 60px auto 0 auto;
+    }
+    .search-container input[type="text"] {
+        width: 100%;
+        padding: 10px 2px 10px 10px;
+        border: none;
+        border-radius: 30px;
+    }
+    .search-container button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        border-radius: 30px;
+        width: 80%;
+        margin-left: 20px;
+        font-size: 16px;
+    }
+    .search-container button:hover {
+        background-color: #45a049;
+    }
+    .search-container .fa-magnifying-glass {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #ffffff;
+    }
+    .info-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .info-box {
+        background: linear-gradient(to bottom, #023373, #3C7BB0);
+        padding: 15px;
+        border-radius: 10px;
+        border: none;
+        margin: 10px auto;
+        width: 80%;
+        max-width: 300px;
+    }
+    .info-box p {
+        margin-bottom: 5px;
+        font-size: 16px;
+    }
+    .risk-red {
+        color: red;
+    }
+    .risk-green {
+        color: #83e509;
+    }
+    .risk-orange {
+        color: orange;
+    }
+
+    .title{
+    font-size: 30px;
+    text-align: center;
+    color: aliceblue;
+    margin-top: 10%;
+    font-weight: 200;
+}
+
+.texts{
+    text-align: right;
+    margin-top: 30px;
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 10px;
+    background-color: rgba(51, 108, 156, 1);
+    width: 391px;
+    height: 58px;
+}
+
+.logo{
+    font-weight: 600;
+    font-size: 28px;
+    color: white;
+}
+
+.nav-itens{
+    list-style: none;
+    display: flex;
+}
+
+.nav-itens>li>a{
+    padding-left: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.link-logo{
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+.voltar{
+    margin-top: 20px;
+    margin-right: 350px;
+    font-size: 25px;
+}
+</style>
+</head>
+<body>
+    <nav>
+        <div class="logo"><a href="" class="link-logo">HWT1</a></div>
+        <div class="links">
+            <ul class="nav-itens">
+                <li><a href="maps.html" target="_self"><img src="localizacao.png"></a></li>
+                <li><a href="historico.html"><img src="calendario.png"></a></li>
+                <li><a href="nivel-chuva.html"><img src="agua.png"></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="voltar">
+    <a href="inicio.html"><i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i></a>
+    </div>
+<div class="texto">
+    <h1>Descubra a situação da sua rua!</h1>
+</div>
+<div>
+    <iframe class="maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58277.457100676766!2d-46.71482797335016!3d-24.08949837345786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce2883ba386b79%3A0x211da91fc6c0ccb9!2zTW9uZ2FndcOhLCBTUA!5e0!3m2!1spt-PT!2sbr!4v1716837530592!5m2!1spt-PT!2sbr" width="320px" height="280px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+<div class="search-container">
+    <input id="enderecoInput" type="text" placeholder="Digite o endereço">
+    <button onclick="buscarInformacoes()">Buscar</button>
+</div>
+<div class="info-container" id="infoContainer">
+</div>
+ 
+<script>
+function buscarInformacoes() {
+    var endereco = document.getElementById("enderecoInput").value;
+    var apiKey = "f9541aea12c614b578167ca4360591bc";
+    var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${endereco}&appid=${apiKey}&lang=pt&units=metric`;
+ 
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            var descricaoMeteorologica = {
+                "Thunderstorm": ["Tempestade", "risk-red"],
+                "Drizzle": ["Garoa", "risk-orange"],
+                "Rain": ["Chuva", "risk-red"],
+                "Snow": ["Neve", "risk-orange"],
+                "Clear": ["Céu Limpo", "risk-green"],
+                "Clouds": ["Nublado", "risk-orange"],
+                "Mist": ["Neblina", "risk-orange"],
+                "Smoke": ["Fumaça", "risk-orange"],
+                "Haze": ["Nevoeiro", "risk-orange"],
+                "Dust": ["Poeira", "risk-orange"],
+                "Fog": ["Névoa", "risk-orange"],
+                "Sand": ["Areia", "risk-orange"],
+                "Ash": ["Cinzas", "risk-orange"],
+                "Squall": ["Rajadas", "risk-orange"],
+                "Tornado": ["Tornado", "risk-red"]
+            };
+ 
+            // Extrair informações
+            var chuva = data.weather[0].main; // Condição meteorológica geral
+            var temperatura = data.main.temp; // Temperatura em Celsius
+            var umidade = data.main.humidity; // Umidade em percentual
+            var riscoInfo = descricaoMeteorologica[chuva]; // Informações sobre o risco
+           
+            // Exibir informações na página
+            var infoContainer = document.getElementById("infoContainer");
+            infoContainer.innerHTML = `
+                <div class="info-box">
+                    <p>Condição meteorológica: ${riscoInfo[0]} <span class="risk-icon ${riscoInfo[1]}">&#9888;</span></p>
+                </div>
+                <div class="info-box">
+                    <p>Temperatura: ${temperatura} °C</p>
+                </div>
+                <div class="info-box">
+                    <p>Umidade: ${umidade}%</p>
+                </div>
+            `;
+           
+            // Verificar se está chovendo
+            if (chuva.toLowerCase().includes("chuva")) {
+                alert("Está chovendo neste local!");
+            }
+        })
+        .catch(error => console.error('Erro ao buscar informações:', error));
+}
+</script>
+</body>
+</html>
